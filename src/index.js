@@ -1,15 +1,16 @@
 import React from "react";
-import ReactDOM from "react-dom";
-import App from "./App";
+import ReactDOM from "react-dom/client";
+import Home from './containers/Home';
+import Users from './containers/Users';
 import GlobalStyle from "./globalStyle";
 
-ReactDOM.render(
-<>
-        <App /> <GlobalStyle />
-        </>,
+const root = ReactDOM.createRoot(document.getElementById("root"));
+root.render(
+        <React.StrictMode>
+                <Users /> <GlobalStyle />
+        </React.StrictMode>
 
-        document.getElementById("root")
-        );
+);
 
 
 

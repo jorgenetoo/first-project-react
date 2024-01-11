@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import Background from "./assets/Background.svg"
+import Background from "../../assets/Background.svg"
 
 export const Container = styled.div`
 background: url("${Background}");
@@ -93,7 +93,7 @@ line-height: 28px;
  align-items: center;
  justify-content: center;
  gap:20px;
- margin-top: 45px;
+ margin-top: 130px;
  
  
 &:hover {
@@ -105,36 +105,4 @@ line-height: 28px;
 }
 `;
 
-export const User = styled.li`
-display: flex;
-justify-content: space-around;
-align-items: center;
-margin-top: 20px;
 
-border-radius: 14px;
-background: rgba(255, 255, 255, 0.25);
-box-shadow: 0px 4px 4px 0px 
-rgba(0, 0, 0, 0.25);
-
-width: 342px;
-height: 58px;
-
-border: none;
-outline: none;
-padding-left: 25px ;
-
-p{
-color: #FFF;
-font-size: 24px;
-font-style: normal;
-font-weight: 400;
-line-height: normal;
-}
-
-button {
-    background: none;
-    border: none;
-    cursor: pointer;
-    
-}
-`

@@ -1,10 +1,10 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef} from "react";
 
 import axios from 'axios'
 
-import People from './assets/people.svg'
-import Arrow from './assets/arrow.svg'
-import Trash from './assets/trash.svg'
+import People from '../../assets/people.svg'
+import Arrow from '../../assets/arrow.svg'
+
 
 import {
   Container,
@@ -14,7 +14,7 @@ import {
   InputLabel,
   Input,
   Button,
-  User,
+  
 
 } from "./styles"
 
@@ -26,19 +26,20 @@ function App() {
   //UM ESTADDO NO REACT É IMUTÁVEL
   async function addNewUser() {
 
-    const data =  await axios.post('http://localhost:3001/users',
-    {name:inputName.current.valeu, age:inputName.current.valeu})
+   const {data: newUsers} =  await axios.post('http://localhost:3001/users',
+   {name:inputName.current.value, age:inputAge.current.value})
 
-   // setUsers([...users, { id: Math.random(), 
-   //name: inputName.current.value, age: inputAge.current.value }])
+    setUsers([...users, newUsers ])
+
 
     }
+
+
+
+  //REACT HOOK => useEffect (efeito colateral)
   //spread operato que é os ...
 
-  function deleteUser(userId){
-  const newUsers = users.filter(user => user.id !== userId);
-  setUsers(newUsers)
-;  }
+ 
 
   return (
     <Container>
@@ -52,14 +53,7 @@ function App() {
         <Input ref={inputAge} placeholder="Age" />
 
         <Button onClick={addNewUser}> Cadastrar < img alt="seta" src={Arrow} /></ Button>
-        <ul>
-          {users.map((user) => (
-            <User key={user.id}>
-              <p> {user.name}</p> - <p>{user.age}</p>
-              <button onClick={()=>deleteUser(user.id)}> <img src={Trash} alt="lixeira" /> </button>
-            </User>
-          ))}
-        </ul>
+        
       </ContainerItens>
     </Container>
   );
